@@ -1,0 +1,30 @@
+{
+  "name": "techshop",
+  "version": "1.0.0",
+  "description": "E-Commerce App",
+  "type": "module",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.11.2",
+    "react-router-dom": "^6.11.2",
+    "scheduler": "^0.23.0"
+  },
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GregPetropoulos/TechShop.git"
+  },
+  "author": "Greg Petropoulos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GregPetropoulos/TechShop/issues"
+  },
+  "homepage": "https://github.com/GregPetropoulos/TechShop#readme"
+}
