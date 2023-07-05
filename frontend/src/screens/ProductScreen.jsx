@@ -2,7 +2,7 @@ import React from 'react';
 import Rating from '../components/Rating';
 import { Col, Row, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../products';
+import products from '../products';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -17,7 +17,8 @@ const ProductScreen = () => {
       </Link>
       <Row>
         <Col md={5}>
-          <Image src={product.image} alt={product.name} fluid />
+          {/* <Image src={product.image} alt={product.name} fluid /> */}
+          <Image src={'../images/alexa.jpg'} alt={product.name} fluid />
         </Col>
         <Col md={4}>
           <ListGroup variant='flush'>
