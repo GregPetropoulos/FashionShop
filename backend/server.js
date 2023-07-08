@@ -1,6 +1,6 @@
 import express from 'express';
-import productRoutes from './routes/productRoutes.js'
-import {notFound,errorHandler} from './middleware/errorMiddleware.js'
+import productRoutes from './routes/productRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import dotenv from 'dotenv';
 import colors from 'colors';
 dotenv.config();
@@ -13,8 +13,8 @@ const app = express();
 //   res.send('API IS RUNNING');
 // });
 
-app.use('/api/products',productRoutes)
-app.use(notFound)
-app.use(errorHandler)
+app.use('/api/products', productRoutes);
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
