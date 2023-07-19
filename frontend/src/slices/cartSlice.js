@@ -23,10 +23,14 @@ const cartSlice = createSlice({
       }
       return updateCart(state);
     },
+    removeFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter((item) => item._id !== action.payload);
+      return updateCart(state)
+    },
   },
 });
 // * ANY REDUCER FUNCTION IN THE REDUCERS{} MUST BE EXPORTED
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart,removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
