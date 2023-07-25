@@ -36,7 +36,7 @@ const cartSlice = createSlice({
       state.paymentMethod = action.payload;
       return updateCart(state);
     },
-    clearCartItem: (state, action) => {
+    clearCartItems: (state, action) => {
       state.cartItem = [];//once order is created clear the cart
       return updateCart(state);
     },
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
 });
 // * ANY REDUCER FUNCTION IN THE REDUCERS{} MUST BE EXPORTED
 
-export const { addToCart, removeFromCart, saveShippingAddress, savePaymentMethod } =
+export const { clearCartItems,addToCart, removeFromCart, saveShippingAddress, savePaymentMethod } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
