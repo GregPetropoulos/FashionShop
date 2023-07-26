@@ -34,5 +34,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use(notFound);
 app.use(errorHandler);
+// *PAYPAL-ROUTE
+app.get('/api/config/paypal', (req, res) => res.send({ clientId: process.env.PAYPAL_CLIENT_ID }));
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
