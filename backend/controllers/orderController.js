@@ -46,18 +46,34 @@ const getMyOrders = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update order to paid
-// @route   GET /api/orders/:/id/pay
+// @route   PUT /api/orders/:/id/pay
 // @access  PRIVATE
-const updateOrderToPaid = asyncHandler(async (req, res) => {});
-//* ADMIN
-// *======================
-// *======================
+const updateOrderToPaid = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    (order.isPaid = true),
+      (order.paidAt = Date.now()),
+      //comes from paypal below
+      (order.paymentResult = {
+        id: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.payer.email_address,
+      });
+    const updateOrder = await order.save(); //save to db
+    res.status(200).json(updateOrder); //respond with updated order
+  } else {
+    res.stats(404);
+    throw new Error('Order not found');
+  }
+});
+
 // @desc    Get order by id
-// @route   GET /api/orders/:id
-// @access  PRIVATE/Admin
+// @route   PUT /api/orders/:id
+// @access  PRIVATE
 const getOrderById = asyncHandler(async (req, res) => {
   //using .id because it's in the url and not directly from db as ._id
-  //using populate to add name and eamil from the user collection to the order
+  //using populate to add name and email from the user collection to the order
   const order = await Order.findById(req.params.id).populate('user', 'name email');
   if (order) {
     res.status(200).json(order);
@@ -66,6 +82,11 @@ const getOrderById = asyncHandler(async (req, res) => {
     throw new Error('Order not found');
   }
 });
+
+//* ADMIN
+// *======================
+// *======================
+
 // @desc     Update order to delivered
 // @route   GET /api/orders/:id/deliver
 // @access  PRIVATE/Admin
