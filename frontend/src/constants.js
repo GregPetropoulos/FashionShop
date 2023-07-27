@@ -3,7 +3,7 @@
 // this will throw a cors error since we are using the proxy in package.json. If you want use this remove the proxy in the package.json
 // ======
 
-export const BASE_URL= ''
+export const BASE_URL= ''//if using proxy
 
 export const PRODUCTS_URL = '/api/products';
 export const USERS_URL = '/api/users';
