@@ -1,33 +1,35 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container, Badge } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 // import logo from '../assets/logo.png'
 import logo from '../assets/T-logo.png';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../slices/userApiSlice';
 import { logout } from '../slices/authSlice';
-
+import { resetCart } from '../slices/cartSlice';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.auth);
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [logoutApiCall]= useLogoutMutation()
+  const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
-try {
-
-  await logoutApiCall().unwrap()//a function call to the useLogoutMutation
-  dispatch(logout())//clearing local storage
-  navigate('/login')
-} catch (err) {
-  console.log(err)
-}
-   
+    try {
+      await logoutApiCall().unwrap(); //a function call to the useLogoutMutation
+      dispatch(logout()); //clearing local storage
+      
+      // NOTE: here we need to reset cart state for when a user logs out so the next
+      // user doesn't inherit the previous users cart and shipping
+      dispatch(resetCart());
+      navigate('/login');
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <header>
