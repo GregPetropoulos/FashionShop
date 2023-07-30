@@ -22,7 +22,7 @@ const cartSlice = createSlice({
       } else {
         state.cartItems = [...state.cartItems, item];
       }
-      return updateCart(state);
+      return updateCart(state,item);
     },
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter((item) => item._id !== action.payload);
@@ -30,15 +30,15 @@ const cartSlice = createSlice({
     },
     saveShippingAddress: (state, action) => {
       state.shippingAddress = action.payload;
-      return updateCart(state);
+      localStorage.setItem('cart', JSON.stringify(state));
     },
     savePaymentMethod: (state, action) => {
       state.paymentMethod = action.payload;
-      return updateCart(state);
+      localStorage.setItem('cart', JSON.stringify(state));
     },
     clearCartItems: (state, action) => {
-      state.cartItem = [];//once order is created clear the cart
-      return updateCart(state);
+      state.cartItem = []; //once order is created clear the cart
+      localStorage.setItem('cart', JSON.stringify(state));
     },
     // NOTE: here we need to reset state for when a user logs out so the next
     // user doesn't inherit the previous users cart and shipping
@@ -47,7 +47,13 @@ const cartSlice = createSlice({
 });
 // * ANY REDUCER FUNCTION IN THE REDUCERS{} MUST BE EXPORTED
 
-export const { clearCartItems,addToCart, removeFromCart, saveShippingAddress, savePaymentMethod,resetCart } =
-  cartSlice.actions;
+export const {
+  clearCartItems,
+  addToCart,
+  removeFromCart,
+  saveShippingAddress,
+  savePaymentMethod,
+  resetCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
