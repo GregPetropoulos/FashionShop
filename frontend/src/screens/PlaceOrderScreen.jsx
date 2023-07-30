@@ -84,7 +84,7 @@ const PlaceOrderScreen = () => {
                           <Link to={`/products/${item.product}`}></Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x {item.price} = {item.qty * item.price}
+                          {item.qty} x {item.price} = {(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -125,7 +125,7 @@ const PlaceOrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
-                {error && <Message variant='danger'>{error}</Message>}
+                {error && <Message variant='danger'>{error.data.message}</Message>}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
