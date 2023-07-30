@@ -29,7 +29,6 @@ const OrderScreen = () => {
     isLoading: loadingPayPal,
     error: errorPayPal,
   } = useGetPayPalClientIdQuery();
-  console.log('paypal', paypal);
   //*PAYPAL
   // *=====
   // *=====
