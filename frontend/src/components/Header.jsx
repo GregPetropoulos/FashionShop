@@ -22,7 +22,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap(); //a function call to the useLogoutMutation
       dispatch(logout()); //clearing local storage
-      
+
       // NOTE: here we need to reset cart state for when a user logs out so the next
       // user doesn't inherit the previous users cart and shipping
       dispatch(resetCart());
@@ -70,6 +70,19 @@ const Header = () => {
                     Sign In
                   </Nav.Link>
                 </LinkContainer>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/productlist'>
+                    <NavDropdown.Item>Products</NavDropdown.Item>
+                  </LinkContainer>{' '}
+                  <LinkContainer to='/admin/userlist'>
+                    <NavDropdown.Item>User</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
               )}
             </Nav>
           </Navbar.Collapse>
