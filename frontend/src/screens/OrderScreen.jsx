@@ -34,7 +34,7 @@ const OrderScreen = () => {
   //*PAYPAL
   // *=====
   // *=====
-
+console.log("paypal.clientId",paypal)
   //Load paypal script
   useEffect(() => {
     if (!errorPayPal && !loadingPay && paypal?.clientId) {
@@ -42,7 +42,7 @@ const OrderScreen = () => {
         paypalDispatch({
           type: 'resetOptions',
           value: {
-            clientId: paypal.clientId,
+            'client-id': paypal.clientId,
             currency: 'USD',
           },
         });
