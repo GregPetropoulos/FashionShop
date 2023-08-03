@@ -5,16 +5,29 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetProductsQuery, useCreateProductMutation } from '../../slices/productsApiSlice';
+import {
+  useGetProductsQuery,
+  useCreateProductMutation,
+  useDeleteProductMutation,
+} from '../../slices/productsApiSlice';
 import { toast } from 'react-toastify';
 
 const ProductListScreen = () => {
   const { data: products, isLoading, error, refetch } = useGetProductsQuery();
   const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();
+  const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
   const dispatch = useDispatch();
 
-  const deleteHandler = (id) => {
-    console.log('delete', id);
+  const deleteHandler = async (id) => {
+    if (window.confirm('This is a permanent action, are you sure?')) {
+      try {
+        await deleteProduct(id)
+        refetch()
+        toast.success('Product Deleted')
+      } catch (err) {
+        toast.error(err?.data?.message||err.error)
+      }
+    }
   };
   const createProductHandler = async () => {
     if (window.confirm('Are you sure you want to create a new product?')) {
@@ -40,6 +53,7 @@ const ProductListScreen = () => {
         </Col>
       </Row>
       {loadingCreate && <Loader />}
+      {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />
       ) : error ? (
