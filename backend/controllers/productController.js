@@ -53,7 +53,7 @@ const createProducts = asyncHandler(async (req, res) => {
 const updateProduct = asyncHandler(async (req, res) => {
   const { name, price, description, image, brand, category, countInStock } = req.body;
   const product = await Product.findById(req.params.id);
-  console.log(req.params._id)
+  console.log(req.params._id);
 
   if (product) {
     product.name = name;
@@ -64,11 +64,26 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.category = category;
     product.countInStock = countInStock;
     const updatedProduct = await product.save();
-    res.json(updatedProduct)
-  }else{
+    res.json(updatedProduct);
+  } else {
     res.status(404);
-    throw new Error('Resource not found')
+    throw new Error('Resource not found');
   }
 });
 
-export { getProductById, getProducts, createProducts,updateProduct };
+// @desc    Delete a product
+// @route   DELETE /api/products/:id
+// @access  PRIVATE/ADMIN
+const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    // Mongoose method deleteOne
+    await Product.deleteOne({ _id: product._id });
+    res.status(200).json({ message: 'Product Deleted' });
+  } else {
+    res.status(404);
+    throw new Error('Resource not found');
+  }
+});
+
+export { getProductById, getProducts, createProducts, updateProduct, deleteProduct };
