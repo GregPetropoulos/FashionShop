@@ -11,28 +11,42 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    register:builder.mutation({
-query:(data)=>({
-url:`${USERS_URL}`,
-method:'POST',
-body:data
-
-})
+    register: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}`,
+        method: 'POST',
+        body: data,
+      }),
     }),
     logout: builder.mutation({
-        query:(data)=>({
-            url:`${USERS_URL}/logout`,
-            method:'POST'
-        })
+      query: (data) => ({
+        url: `${USERS_URL}/logout`,
+        method: 'POST',
+      }),
     }),
     profile: builder.mutation({
-      query:(data)=>({
-        url:`${USERS_URL}/profile`,
-        method:'PUT',
-        body:data
-      })
-    })
+      query: (data) => ({
+        url: `${USERS_URL}/profile`,
+        method: 'PUT',
+        body: data,
+      }),
+    }),
+
+    //* FOR ADMIN
+    getUsers: builder.query({
+      query: () => ({
+        url: USERS_URL,
+      }),
+      providesTags: ['Users'], //Cache watching so we don't have to reload page to see updated UI
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
-export const { useLoginMutation,useLogoutMutation,useRegisterMutation,useProfileMutation } = usersApiSlice;
+export const {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+  useProfileMutation,
+  useGetUsersQuery,
+} = usersApiSlice;
