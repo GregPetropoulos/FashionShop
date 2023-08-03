@@ -5,19 +5,30 @@ import { FaTimes, FaTrash, FaEdit, FaCheck } from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetUsersQuery } from '../../slices/userApiSlice';
+import { useGetUsersQuery, useDeleteUserMutation } from '../../slices/userApiSlice';
+import { toast } from 'react-toastify';
 
 const UserListScreen = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
+  const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
   const dispatch = useDispatch();
 
   const deleteHandler = async (id) => {
-    console.log('DELETEHANDLER', id);
+    if (window.confirm('This is a permanent action, are you sure?')) {
+      try {
+        await deleteUser(id);
+        refetch();
+        toast.success('User Deleted');
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
   };
 
   return (
     <>
-      <h1>Orders</h1>
+      <h1>Users</h1>
+      {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -59,7 +70,9 @@ const UserListScreen = () => {
                     variant='danger'
                     className='btn-sm'
                     onClick={() => deleteHandler(user._id)}
-                  ><FaTrash style={{color:'white'}}/></Button>
+                  >
+                    <FaTrash style={{ color: 'white' }} />
+                  </Button>
                 </td>
               </tr>
             ))}
