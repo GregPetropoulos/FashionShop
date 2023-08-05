@@ -68,7 +68,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
   if (user) {
     res.status(200).json({
-      id: user._id,
+      id: user._id,//!Check this id, might need to be _id
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
