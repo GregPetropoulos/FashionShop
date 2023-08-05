@@ -90,7 +90,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @route   POST /api/products/:id/reviews
 // @access  PRIVATE
 const createProductReview = asyncHandler(async (req, res) => {
-  const { rating, comment } = res.body;
+  const { rating, comment } = req.body;
   const product = await Product.findById(req.params.id);
   if (product) {
     //Dedupe if user making a second review on the same product
