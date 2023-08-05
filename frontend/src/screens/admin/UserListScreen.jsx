@@ -4,14 +4,12 @@ import { Table, Button } from 'react-bootstrap';
 import { FaTimes, FaTrash, FaEdit, FaCheck } from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
-import { useDispatch, useSelector } from 'react-redux';
 import { useGetUsersQuery, useDeleteUserMutation } from '../../slices/userApiSlice';
 import { toast } from 'react-toastify';
 
 const UserListScreen = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
-  const dispatch = useDispatch();
 
   const deleteHandler = async (id) => {
     if (window.confirm('This is a permanent action, are you sure?')) {
@@ -61,7 +59,7 @@ const UserListScreen = () => {
                 </td>
 
                 <td>
-                  <LinkContainer to={`admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <FaEdit />
                     </Button>
