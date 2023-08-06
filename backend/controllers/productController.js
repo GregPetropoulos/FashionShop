@@ -11,11 +11,11 @@ const getProducts = asyncHandler(async (req, res) => {
 
   // SEARCH
   const keyword = req.query.keyword ? { name: { $regex: req.query.keyword, $options: 'i' } } : {};
-  
-  //Mongoose method  to get total number of products
-  const count = await Product.countDocuments({...keyword});//if  no keyword its empty {}
 
-  const products = await Product.find({...keyword})//if  no keyword its empty {}
+  //Mongoose method  to get total number of products
+  const count = await Product.countDocuments({ ...keyword }); //if  no keyword its empty {}
+
+  const products = await Product.find({ ...keyword }) //if  no keyword its empty {}
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   if (products) {
@@ -37,6 +37,13 @@ const getProductById = asyncHandler(async (req, res) => {
   throw new Error('Resource not found');
 });
 
+// @desc    Get top rated products
+// @route   GET /api/products/top
+// @access  Public
+const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+  res.status(200).json(products);
+});
 //* ADMIN
 // *======================
 // *======================
@@ -140,4 +147,5 @@ export {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopProducts,
 };
