@@ -4,15 +4,10 @@ import { Table, Button } from 'react-bootstrap';
 import { FaTimes } from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
-import { useDispatch, useSelector } from 'react-redux';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
 
 export const OrderListScreen = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
-  const dispatch = useDispatch();
-
-  // const {orders}=useSelector(state=>state.orders)
-
   return (
     <>
       <h1>Orders</h1>

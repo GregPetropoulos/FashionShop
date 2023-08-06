@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -26,6 +27,7 @@ const HomeScreen = () => {
         <Message variant='danger'>{error?.data?.message}</Message>
       ) : (
         <>
+        <Meta title='Home'/>
           <h1>Latest Products</h1>
           <Row className='justify-content-center'>
             {data.products.map((product) => (
