@@ -1,17 +1,21 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../models/productModel.js';
 
-// @desc    Fetch all products
+// @desc    Fetch all products/paginate
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  // Pagination
-  const pageSize = 4;
+  // PAGINATION
+  const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
-  //Mongoose method  to get total number of products
-  const count = await Product.countDocuments();
 
-  const products = await Product.find({})
+  // SEARCH
+  const keyword = req.query.keyword ? { name: { $regex: req.query.keyword, $options: 'i' } } : {};
+  
+  //Mongoose method  to get total number of products
+  const count = await Product.countDocuments({...keyword});//if  no keyword its empty {}
+
+  const products = await Product.find({...keyword})//if  no keyword its empty {}
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   if (products) {
