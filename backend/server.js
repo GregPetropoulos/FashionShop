@@ -45,6 +45,20 @@ app.get('/api/config/paypal', (req, res) => res.send({ clientId: process.env.PAY
 const __dirname = path.resolve(); //set dirname to current folder
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
+//*FOR DEPLOYMENT
+if (process.env.NODE_ENV === 'production') {
+  // After npm run build is ran, set build folder to be static folder,
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+  //Any route that is not api will be redirected to index.html
+  //Load the index.html in the frontend build folder, if not an api route
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API IS RUNNING IN DEV ENVIRONMENT...');
+  });
+}
 app.use(notFound);
 app.use(errorHandler);
 
