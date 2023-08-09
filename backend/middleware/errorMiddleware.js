@@ -12,13 +12,6 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message;
 
-  //CHECK FOR BAD MONGOOSE OBJECTID
-  if (err.name === 'CastError' && err.kind === 'ObjectId') {
-    message = `Resource not found`;
-    statusCode = 404;
-  }
-  return res
-    .status(statusCode)
-    .json({ message, stack: process.env.NODE_ENV === 'production' ? '👊' : err.stack });
+  res.status(statusCode).json({ message:message, stack: process.env.NODE_ENV === 'production' ? null : err.stack });
 };
 export { errorHandler, notFound };

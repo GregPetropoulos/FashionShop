@@ -37,7 +37,7 @@ const ProductListScreen = () => {
         refetch();
         toast.success('Product is created');
       } catch (err) {
-        toast.error(err.data.message);
+        toast.error(err?.data?.message||err.error);
       }
     }
   };
@@ -58,7 +58,7 @@ const ProductListScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message>{error.data.message}</Message>
+        <Message>{error?.data?.message}</Message>
       ) : (
         <>
           <Table striped hover responsive className='table-sm'>

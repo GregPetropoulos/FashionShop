@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
   },
 });
 
-function checkFileType(file, cb) {
+function fileFilter(req,file, cb) {
   const filetypes = /jpe?g|png|webp/;
   const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
 
@@ -26,7 +26,7 @@ function checkFileType(file, cb) {
     cb(new Error('Images only!'), false);
   }
 }
-const upload = multer({ storage, checkFileType });
+const upload = multer({ storage, fileFilter });
 const uploadSingleImage = upload.single('image');
 
 // upload handled  by middleware
