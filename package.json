@@ -1,7 +1,7 @@
 {
-  "name": "techshop",
+  "name": "fashionshop",
   "version": "1.0.0",
-  "description": "E-Commerce App",
+  "description": "E-Commerce Fashion Shop App",
   "type": "module",
   "main": "server.js",
   "dependencies": {
