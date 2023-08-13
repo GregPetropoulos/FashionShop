@@ -17,7 +17,7 @@ const HomeScreen = () => {
       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Link to='/' className='btn btn-light mb-4'>
+        <Link to='/' className='btn btn-primary mb-4'>
           Go Back
         </Link>
       )}
@@ -27,7 +27,7 @@ const HomeScreen = () => {
         <Message variant='danger'>{error?.data?.message}</Message>
       ) : (
         <>
-        <Meta title='Home'/>
+          <Meta title='Home' />
           <h1>Latest Products</h1>
           <Row className='justify-content-center'>
             {data.products.map((product) => (

@@ -37,7 +37,7 @@ const ProductListScreen = () => {
         refetch();
         toast.success('Product is created');
       } catch (err) {
-        toast.error(err?.data?.message||err.error);
+        toast.error(err?.data?.message || err.error);
       }
     }
   };

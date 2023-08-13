@@ -57,8 +57,10 @@ const PlaceOrderScreen = () => {
               <h2>Shipping</h2>
               <p>
                 <strong>Address:</strong>
-                {shippingAddress.address},{shippingAddress.city},{shippingAddress.postalCode},
-                {shippingAddress.country}
+                <span className='px-2'>{shippingAddress.address},</span>
+                <span>{shippingAddress.city},</span>
+                <span className='px-2'>{shippingAddress.postalCode},</span>
+                <span>{shippingAddress.country}</span>
               </p>
             </ListGroup.Item>
             <ListGroup.Item>

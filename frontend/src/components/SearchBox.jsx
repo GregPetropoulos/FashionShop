@@ -9,11 +9,11 @@ const SearchBox = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(keyword.trim()){
-      setKeyword('')
-      navigate(`/search/${keyword}`)
-    }else{
-      navigate('/')
+    if (keyword.trim()) {
+      setKeyword('');
+      navigate(`/search/${keyword}`);
+    } else {
+      navigate('/');
     }
   };
   return (
@@ -26,7 +26,11 @@ const SearchBox = () => {
         placeholder='Search Products...'
         className='mr-sm-2 ml-sm-5'
       ></Form.Control>
-      <Button type='submit' variant='outline-light' className='p-2 mx-2'>
+      <Button
+        type='submit'
+        // variant={''}
+        className=' bg-info px-2 mx-2'
+      >
         {' '}
         Search
       </Button>

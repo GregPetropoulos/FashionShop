@@ -33,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GregPetropoulos/TechShop.git"
+    "url": "git+https://github.com/GregPetropoulos/FashionShop.git"
   },
   "author": "Greg Petropoulos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GregPetropoulos/TechShop/issues"
+    "url": "https://github.com/GregPetropoulos/FashionShop/issues"
   },
-  "homepage": "https://github.com/GregPetropoulos/TechShop#readme",
+  "homepage": "https://github.com/GregPetropoulos/FashionShop#readme",
   "devDependencies": {
     "colors": "^1.4.0",
     "concurrently": "^8.1.0",

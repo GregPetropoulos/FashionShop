@@ -13,6 +13,7 @@ import store from './store';
 // import 'bootstrap/dist/css/bootstrap.min.css';//for just bootstrap
 import './assets/styles/index.css'; //custom styles
 import './assets/styles/bootstrap.custom.css'; //custom styles
+import '../src/scss/custom.scss'; //customizing bootstrap
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';

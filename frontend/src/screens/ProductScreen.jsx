@@ -30,25 +30,25 @@ const ProductScreen = () => {
   };
   const submitHandler = async (e) => {
     e.preventDefault();
-   
+
     try {
       await createReview({
         productId,
         rating,
         comment,
       }).unwrap();
-  
+
       refetch(); // keep data fresh
       toast.success('Review Submitted');
       setRating(0);
       setComment('');
     } catch (err) {
-      toast.error(err?.data?.message || err.error)
+      toast.error(err?.data?.message || err.error);
     }
   };
   return (
     <>
-      <Link className='btn btn-light my-3' to='/'>
+      <Link className='btn btn-primary my-3' to='/'>
         Go Back
       </Link>
       {isLoading ? (
@@ -57,7 +57,7 @@ const ProductScreen = () => {
         <Message variant='danger'>{error?.data?.message}</Message>
       ) : (
         <>
-        <Meta title={product.name}/>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />

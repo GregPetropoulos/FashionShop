@@ -14,8 +14,7 @@ const products = [
   {
     name: 'Mid Rise Baby Boot Jeans with Washwell',
     image: '/images/womens-bottoms-1.webp',
-    description:
-      `A classic bootcut jean with a mini-gone-major update. We kept it straight through the leg — then ended with a slight flare. This is the 2.0 version of a forever favorite.
+    description: `A classic bootcut jean with a mini-gone-major update. We kept it straight through the leg — then ended with a slight flare. This is the 2.0 version of a forever favorite.
 
       - Fit: A full-length slim fit with a mini bootcut leg.​
       - Fabric: 81% Cotton, 4% Recycled Materials, 6% Stretch.
@@ -34,7 +33,7 @@ const products = [
   {
     name: 'Ruffle-Trim Maxi Dress',
     image: '/images/womens-dress-1.jpg',
-    description:`A woven maxi dress featuring a smocked bodice, square-cut neckline and back, shoulder straps with ruffle trim, a column silhouette, and flounce hem.
+    description: `A woven maxi dress featuring a smocked bodice, square-cut neckline and back, shoulder straps with ruffle trim, a column silhouette, and flounce hem.
     - This is an independent brand and not a Forever 21 branded item.
 
     Content + Care
@@ -54,7 +53,7 @@ const products = [
   {
     name: 'Plunging Cutout Maxi Dress',
     image: '/images/womens-dress-2.webp',
-    description:`A woven maxi dress featuring a plunging neckline, shoulder straps, low-cut back, front and back cutouts, M-slit, and column silhouette.
+    description: `A woven maxi dress featuring a plunging neckline, shoulder straps, low-cut back, front and back cutouts, M-slit, and column silhouette.
     Content + Care
     - 100% rayon
     
@@ -72,7 +71,7 @@ const products = [
   {
     name: 'Collared Zip-Up Mini Dress',
     image: '/images/womens-dress-3.webp',
-    description:`A canvas mini dress featuring a zip-front closure, plunging V-neckline, basic collar, seam detailing, cap sleeves, pleating, and a fit and flare silhouette.
+    description: `A canvas mini dress featuring a zip-front closure, plunging V-neckline, basic collar, seam detailing, cap sleeves, pleating, and a fit and flare silhouette.
     Content + Care
     - 100% cotton
     
@@ -90,7 +89,7 @@ const products = [
   {
     name: 'Contour Cropped Tube Top',
     image: '/images/womens-top-1.jpeg',
-    description:`This must-have shapewear tube top flatters, lifts, and smooths without constricting! It features a cropped hem, straight-cut neckline and back, as well as a lightweight double-layered knit fabric that contours the body for a flattering and smoothing fit with minimal seams and high functionality.
+    description: `This must-have shapewear tube top flatters, lifts, and smooths without constricting! It features a cropped hem, straight-cut neckline and back, as well as a lightweight double-layered knit fabric that contours the body for a flattering and smoothing fit with minimal seams and high functionality.
     Content + Care
     - 90% nylon, 10% spandex
     

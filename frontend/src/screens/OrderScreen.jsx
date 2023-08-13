@@ -31,7 +31,7 @@ const OrderScreen = () => {
     isLoading: loadingPayPal,
     error: errorPayPal,
   } = useGetPayPalClientIdQuery();
-  
+
   //*PAYPAL
   // *=====
   // *=====
@@ -56,7 +56,7 @@ const OrderScreen = () => {
         }
       }
     }
-  }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal,loadingPay]);
+  }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal, loadingPay]);
 
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
@@ -114,12 +114,21 @@ const OrderScreen = () => {
               </p>
               <p>
                 <strong>Email:</strong>
-                <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+                <span className='px-2'>
+                  <a
+                    href={`mailto:${order.user.email}`}
+                    className='text-decoration-none text-secondary'
+                  >
+                    {order.user.email}
+                  </a>
+                </span>
               </p>
               <p>
                 <strong>Address:</strong>
-                {order.shippingAddress.address},{order.shippingAddress.city},
-                {order.shippingAddress.country},
+                <span className='px-2'>{order.shippingAddress.address},</span>
+                <span>{order.shippingAddress.city},</span>
+                <span className='px-2'>{order.shippingAddress.postalCode}</span>
+                <span>{order.shippingAddress.country}</span>
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>Delivered on {order.deliveredAt}</Message>
@@ -148,7 +157,12 @@ const OrderScreen = () => {
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
                     <Col>
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      <Link
+                        to={`/product/${item.product}`}
+                        className='text-decoration-none text-info'
+                      >
+                        {item.name}
+                      </Link>
                     </Col>
                     <Col md={4}>
                       {item.qty} x {item.price} = ${(item.price * item.qty).toFixed(2)}
