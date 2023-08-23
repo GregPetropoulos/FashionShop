@@ -8,6 +8,7 @@ import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
+import PropTypes from 'prop-types';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -42,5 +43,12 @@ const HomeScreen = () => {
     </>
   );
 };
+HomeScreen.propTypes ={
+keyword:PropTypes.string,
+pageNumber:PropTypes.string,
+data:PropTypes.object, 
+isLoading:PropTypes.bool,
+error:PropTypes.object
 
+}
 export default HomeScreen;

@@ -9,6 +9,7 @@ import { useLogoutMutation } from '../slices/userApiSlice';
 import { logout } from '../slices/authSlice';
 import { resetCart } from '../slices/cartSlice';
 import SearchBox from './SearchBox';
+import PropTypes from 'prop-types';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -91,5 +92,42 @@ const Header = () => {
     </header>
   );
 };
-
+Header.propTypes = {
+  auth: PropTypes.objectOf({
+    userInfo: {
+      _id: PropTypes.string,
+      name: PropTypes.string,
+      email: PropTypes.string,
+      isAdmin: PropTypes.bool,
+    },
+  }),
+  cart: PropTypes.objectOf({
+    cartItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string,
+        _v: PropTypes.number,
+        brand: PropTypes.string,
+        category: PropTypes.string,
+        countInStock: PropTypes.number,
+        createdAt: PropTypes.string,
+        description: PropTypes.string,
+        image: PropTypes.string,
+        name: PropTypes.string,
+        numReviews: PropTypes.number,
+        price: PropTypes.number,
+        qty: PropTypes.number,
+        rating: PropTypes.number,
+        reviews: PropTypes.array,
+        updatedAt: PropTypes.string,
+        user: PropTypes.string,
+      })
+    ),
+    shippingAddress: PropTypes.string,
+    paymentMethod: PropTypes.string,
+    itemsPrice: PropTypes.string,
+    shippingPrice: PropTypes.string,
+    taxPrice: PropTypes.string,
+    totalPrice: PropTypes.string,
+  }),
+};
 export default Header;
