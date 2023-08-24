@@ -1,11 +1,13 @@
 /** @type { import('@storybook/react').Preview } */
 import '../src/assets/styles/index.css';
 import '../src/assets/styles/bootstrap.custom.css';
-import React from "react";
-import { MemoryRouter } from "react-router";
-import { Provider } from "react-redux";
+import React from 'react';
+import { MemoryRouter } from 'react-router';
+import { Helmet } from 'react-helmet-async';
+import { Provider } from 'react-redux';
+import Meta from '../src/components/Meta';
 // import { ThemeProvider } from "@material-ui/styles";
-import store from "../src/store";
+import store from '../src/store';
 // import theme from "../src/theme";
 
 // Registers the msw addon
@@ -28,13 +30,13 @@ initialize();
 
 const preview = {
   decorators: [
-    Story => (
+    (Story) => (
       <Provider store={store}>
-          <MemoryRouter>
-            <Story />
-          </MemoryRouter>
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
       </Provider>
-    )
+    ),
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -43,10 +45,11 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+      expanded: true,
     },
   },
-   // Provide the MSW addon loader globally
-   loaders: [mswLoader],
+  // Provide the MSW addon loader globally
+  loaders: [mswLoader],
 };
 
 export default preview;

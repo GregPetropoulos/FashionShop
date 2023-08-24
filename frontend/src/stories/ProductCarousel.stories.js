@@ -104,7 +104,7 @@ const Mockstore = ({ topProductState, children }) => (
 );
 
 export default {
-  title: 'Components/ProductCarousel',
+  title: 'WIP/Components/ProductCarousel',
   component: ProductCarousel,
   decorators: [(story) => <div style={{ padding: '3rem' }}>{story()}</div>],
   tags: ['autodocs'],
