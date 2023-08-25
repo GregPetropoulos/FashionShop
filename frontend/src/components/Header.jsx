@@ -93,7 +93,7 @@ const Header = () => {
   );
 };
 Header.propTypes = {
-  auth: PropTypes.objectOf({
+  auth: PropTypes.shape({
     userInfo: {
       _id: PropTypes.string,
       name: PropTypes.string,
@@ -101,7 +101,7 @@ Header.propTypes = {
       isAdmin: PropTypes.bool,
     },
   }),
-  cart: PropTypes.objectOf({
+  cart: PropTypes.shape({
     cartItems: PropTypes.arrayOf(
       PropTypes.shape({
         _id: PropTypes.string,

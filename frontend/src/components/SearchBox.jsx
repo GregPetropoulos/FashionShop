@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 const SearchBox = () => {
   const navigate = useNavigate();
@@ -37,5 +38,8 @@ const SearchBox = () => {
     </Form>
   );
 };
-
+SearchBox.propTypes={
+  urlKeyword:PropTypes.string,
+  keyword:PropTypes.string
+}
 export default SearchBox;
