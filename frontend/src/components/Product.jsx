@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; //FOR NEXTJS use href
 import Rating from './Rating';
+import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
   return (
@@ -23,5 +24,25 @@ const Product = ({ product }) => {
     </Card>
   );
 };
-
+Product.propTypes={
+  product:PropTypes.shape({
+    // _id: PropTypes.oneOfType([PropTypes.string,PropTypes.object]),
+    _id: PropTypes.any,
+    _v: PropTypes.number,
+    brand: PropTypes.string,
+    category: PropTypes.string,
+    countInStock: PropTypes.number,
+    createdAt: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    numReviews: PropTypes.number,
+    price: PropTypes.number,
+    qty: PropTypes.number,
+    rating: PropTypes.number,
+    reviews: PropTypes.array,
+    updatedAt: PropTypes.string,
+    user: PropTypes.string,
+  })
+}
 export default Product;
