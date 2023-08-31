@@ -1,56 +1,70 @@
 
 # Fashion Shop
 
-An custom e-commerce fashion shop focused on women's apparel. This website/application is built for a small business wanting to have more granular control, adaptability, and custom features of their website.
+## Logo
+![Logo](./frontend/src/assets/dress-logo.png)
 
+A custom e-commerce fashion shop focused on women's apparel. This website/application is built for a small business wanting to have more granular control, adaptability, and custom features of their website.
 
-## API Reference
+Technologies:
+- Frontend
+    - React
+    - Redux Toolkit
+    - Bootstrap
+    - React-Bootstrap
+- Backend
+    - Node
+    - Express
+    - MongoDB
+    - Mongoose
+    - Seeder
 
-#### Get all items
+## Demo
 
-```http
-  GET /api/items
-```
+Insert gif or link to demo
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+[Video]()
 
-#### Get item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
-
-
-## Appendix
-
-Any additional information goes here
-
+[Deployed Link]()
 
 ## Authors
 
 - [@GregPetropoulos](https://github.com/GregPetropoulos)
 
 
-## Demo
+## Features
+- Fullscreen mode
+- Cross platform
+- Mobile Responsive
+- Full featured shopping cart
+- Product reviews and ratings
+- Top products carousel
+- Product pagination
+- Product search feature
+- User profile with orders
+- Checkout process (shipping, payment method, etc)
+- PayPal / credit card integration
+- Database seeder (products & users)
+- Admin Features
+    - Admin product management
+    - Admin user management
+    - Admin Order details page
+    - Mark orders as delivered option
 
-Insert gif or link to demo
+## Lessons Learned
+
+**Challenges**: Admin users uploading images for products 
+
+**Solutions**: Using Node route on the backend to upload images to a public folder, for scalablity will need to implement cloud storage such as Cloudinary.
 
 
-## Documentation
-[Links](docs/doc-links.md)
+## Appendix
 
-[Documentation](https://linktodocumentation)
+Any additional information goes here
 
+#### add(num1, num2)
+
+Takes two numbers and returns the sum.
 
 ## FAQ
 
@@ -62,15 +76,18 @@ Answer 1
 
 Answer 2
 
+## Documentation
+[Links](docs/doc-links.md)
+
+[Documentation](https://linktodocumentation)
+
+## Optimizations
+
+What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
 
 ## Feedback
 
-If you have any feedback, please reach out to me at gregpetropoulos@yahoo.com
-
-If you create PR:
-- State the problem you are solving
-- Provide a reproducible example, screenshots/video and your solution
-- Explain the desired outcome.
+If you have any feedback, please reach out to gregpetropoulos@yahoo.com
 
 ## Usage/Examples
 
@@ -99,7 +116,7 @@ Clone the project
   git clone https://github.com/GregPetropoulos/FashionShop.git
 ```
 
-### To Run the frontend and backend concurrently
+### **To run the frontend and backend concurrently**
 In the root folder
 
 Install dependencies
@@ -114,7 +131,7 @@ Start the both frontend and backend servers
   npm run dev
 ```
 
-### To run backend only
+### **To run the backend only**
 In the root folder
 
 Install dependencies
@@ -130,7 +147,7 @@ Start the server
 ```
 
 
-### To run frontend only
+### **To run the frontend only**
 In the root folder
 
 ```bash
@@ -148,8 +165,8 @@ Start the server
 ```bash
   npm run start
 ```
-## Run Component / E2E / Unit Testing
-### Run storybook on the frontend (CDD)
+## Testing
+### **To run storybook on the frontend (CDD)**
 In the root folder
 
 ```bash
@@ -161,7 +178,7 @@ npm run storybook
 # This will run on http://localhost:6006/
 ```
 
-### Run Cypress
+### **To run cypress on the frontend**
 In the root folder
 
 ```bash
@@ -170,12 +187,97 @@ In the root folder
 ```bash
 npx cypress open
 ```
-## Logo
-![Logo](./frontend/src/assets/dress-logo.png)
 
 
+## API Reference
 
-## Lessons Learned
+`API_KEY`
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+`ANOTHER_API_KEY`
+
+<!-- share a postman workspace??? -->
+
+#### Get all items
+
+```http
+  GET /api/items
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get item
+
+```http
+  GET /api/items/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file, see the .env-example in the root folder
+```bash
+PORT=5000
+NODE_ENV=development
+MONGO_URI=ADD_YOUR_CONNECTION_STRING_HERE
+JWT_SECRET=ADD_YOUR_SECRET
+PAYPAL_CLIENT_ID=YOUR_PAYPAL_CLIENT_ID
+```
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
+```
+
+## Contributing
+
+Contributions are always welcome!
+
+See [contribute](./docs/contribute.md) for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+## Acknowledgements
+
+ - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
+# Hi, I'm Greg Petropoulos! 👋
+
+## 🚀 About Me
+I am a React/React-Native Front End Developer and enjoy building applications with engaging UI/UX and robust backend API's with Node.js
+
+
+## 🛠 Skills
+React, React Native, Javascript, HTML, CSS, Node, Express
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://gregpetropoulos.dev/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/greg-petropoulos)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/GregoriosPetro1)
+
+
+## Other Common Github Profile Sections
+👩‍💻 I'm currently working on React migration to React Native code base
+
+🧠 I'm currently learning Cypress testing strategy and Next.js
+
+👯‍♀️ I'm looking to collaborate on open source Veterans Health apps
+
+💬 Ask me about anything frontend
+
+📫 How to reach me gregpetropoulos@yahoo.com
+
+
+⚡️ Fun fact...I found a dinosaur fossil that remains in a museum.
 
