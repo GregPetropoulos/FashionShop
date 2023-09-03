@@ -7,4 +7,4 @@ export default {
   tags: ['autodocs'],
 };
 
-export const Default=args => <Meta {...args}/>
+export const Default = (args) => <Meta {...args} />;

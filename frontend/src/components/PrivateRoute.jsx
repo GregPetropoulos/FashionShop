@@ -8,7 +8,7 @@ const PrivateRoute = () => {
   return userInfo ? <Outlet /> : <Navigate to='/login' replace />;
 };
 PrivateRoute.propTypes = {
-  userInfo:PropTypes.shape({
+  userInfo: PropTypes.shape({
     _id: PropTypes.string,
     name: PropTypes.string,
     email: PropTypes.string,

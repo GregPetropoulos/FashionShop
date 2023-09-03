@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const FormContainer = ({ children }) => {
-  console.log("children",typeof children)
+  console.log('children', typeof children);
   return (
     <Container>
       <Row className='justify-content-md-center'>
@@ -14,6 +14,5 @@ const FormContainer = ({ children }) => {
     </Container>
   );
 };
-FormContainer.propTypes = {
-};
+FormContainer.propTypes = {};
 export default FormContainer;

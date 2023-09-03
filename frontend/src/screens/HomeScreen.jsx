@@ -43,12 +43,11 @@ const HomeScreen = () => {
     </>
   );
 };
-HomeScreen.propTypes ={
-keyword:PropTypes.string,
-pageNumber:PropTypes.string,
-data:PropTypes.object, 
-isLoading:PropTypes.bool,
-error:PropTypes.object
-
-}
+HomeScreen.propTypes = {
+  keyword: PropTypes.string,
+  pageNumber: PropTypes.string,
+  data: PropTypes.object,
+  isLoading: PropTypes.bool,
+  error: PropTypes.object,
+};
 export default HomeScreen;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
@@ -18,7 +17,7 @@ const Footer = () => {
   );
 };
 
-Footer.propTypes={
-  currentYear:PropTypes.object,
-}
+Footer.propTypes = {
+  currentYear: PropTypes.object,
+};
 export default Footer;

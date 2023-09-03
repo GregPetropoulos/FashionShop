@@ -24,8 +24,8 @@ const Product = ({ product }) => {
     </Card>
   );
 };
-Product.propTypes={
-  product:PropTypes.shape({
+Product.propTypes = {
+  product: PropTypes.shape({
     // _id: PropTypes.oneOfType([PropTypes.string,PropTypes.object]),
     _id: PropTypes.any,
     _v: PropTypes.number,
@@ -43,6 +43,6 @@ Product.propTypes={
     reviews: PropTypes.array,
     updatedAt: PropTypes.string,
     user: PropTypes.string,
-  })
-}
+  }),
+};
 export default Product;

@@ -8,7 +8,7 @@ const AdminRoute = () => {
 };
 
 AdminRoute.propTypes = {
-  userInfo:PropTypes.shape({
+  userInfo: PropTypes.shape({
     _id: PropTypes.string,
     name: PropTypes.string,
     email: PropTypes.string,

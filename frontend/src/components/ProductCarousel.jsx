@@ -4,7 +4,6 @@ import Message from './Message';
 import { useGetTopProductsQuery } from '../slices/productsApiSlice';
 import PropTypes from 'prop-types';
 
-
 const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
 
@@ -27,10 +26,10 @@ const ProductCarousel = () => {
     </Carousel>
   );
 };
-ProductCarousel.propTypes={
-  products:PropTypes.array,
+ProductCarousel.propTypes = {
+  products: PropTypes.array,
   // data:PropTypes.array,
-  isLoading:PropTypes.bool,
-  error:PropTypes.object
-}
+  isLoading: PropTypes.bool,
+  error: PropTypes.object,
+};
 export default ProductCarousel;

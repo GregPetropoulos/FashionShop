@@ -80,7 +80,7 @@ Answer 1
 Answer 2 -->
 
 ## Documentation
-[Links](docs/doc-links.md)
+[Resource Links](docs/doc-links.md)
 
 [Documentation](https://linktodocumentation)
 
@@ -93,6 +93,17 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 If you have any feedback, please reach out to gregpetropoulos@yahoo.com
 
 ## Usage/Examples
+
+Login with the an admin user or test user that were seeded
+```bash
+    email: 'admin@email.com',
+    password:123456
+
+    email: 'john@email.com',
+    password:123456
+
+```
+
 
 ```javascript
 import Component from 'my-project'
@@ -191,22 +202,20 @@ In the root folder
 npx cypress open
 ```
 
-
 ## API Reference
 There are three core API categories and more detail can be found at the postman docs
 - [Products API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyP)
-    - Get all products
-    - Get products by id
+```javascript
+/api/products
+```
 - [Users API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyQ)
-    - Admin Actions
-    - Auth
+```javascript
+/api/users
+```
 - [Orders API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyN)
-    - Admin Actions
-    - CRUD
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+```javascript
+/api/orders
+```
 
 <!-- share a postman workspace??? -->
 
