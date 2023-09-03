@@ -62,10 +62,10 @@ const CartScreen = () => {
                   <Col md={2}>
                     <Button
                       type='button'
-                      variant='light'
+                      variant='danger'
                       onClick={() => removeFromCartHandler(item._id)}
                     >
-                      <FaTrash />
+                      <FaTrash color='black' />
                     </Button>
                   </Col>
                 </Row>

@@ -4,6 +4,8 @@
 
 [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 
+[cloudinary](https://cloudinary.com/documentation/node_quickstart)
+
 [concurrently](https://www.npmjs.com/package/concurrently)
 
 [cookie-parser](https://www.npmjs.com/package/cookie-parser)
