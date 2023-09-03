@@ -7,12 +7,16 @@
 A custom e-commerce fashion shop focused on women's apparel. This website/application is built for a small business wanting to have more granular control, adaptability, and custom features of their website.
 
 Technologies:
-- Frontend
-    - React
-    - Redux Toolkit
+- Frontend 
+    
+    ![Frontend](https://skills.thijs.gg/icons?i=react,redux,html,css,bootstrap) 
+    - React 
+    - Redux Toolkit 
     - Bootstrap
     - React-Bootstrap
 - Backend
+    
+    ![Frontend](https://skills.thijs.gg/icons?i=nodejs,express,mongo) 
     - Node
     - Express
     - MongoDB
@@ -27,9 +31,8 @@ Insert gif or link to demo
 
 [Deployed Link]()
 
-## Authors
-
-- [@GregPetropoulos](https://github.com/GregPetropoulos)
+## Author
+[@GregPetropoulos](https://github.com/GregPetropoulos)
 
 
 ## Features
@@ -58,7 +61,7 @@ Insert gif or link to demo
 **Solutions**: Using Node route on the backend to upload images to a public folder, for scalablity will need to implement cloud storage such as Cloudinary.
 
 
-## Appendix
+<!-- ## Appendix
 
 Any additional information goes here
 
@@ -74,16 +77,16 @@ Answer 1
 
 #### Question 2
 
-Answer 2
+Answer 2 -->
 
 ## Documentation
 [Links](docs/doc-links.md)
 
 [Documentation](https://linktodocumentation)
 
-## Optimizations
+<!-- ## Optimizations
 
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
+What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility -->
 
 ## Feedback
 
@@ -100,12 +103,12 @@ function App() {
 ```
 
 
-## Used By
+<!-- ## Used By
 
 This project is used by the following companies:
 
 - Company 1
-- Company 2
+- Company 2 -->
 
 
 ## Run Locally
@@ -190,32 +193,22 @@ npx cypress open
 
 
 ## API Reference
+There are three core API categories and more detail can be found at the postman docs
+- [Products API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyP)
+    - Get all products
+    - Get products by id
+- [Users API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyQ)
+    - Admin Actions
+    - Auth
+- [Orders API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyN)
+    - Admin Actions
+    - CRUD
 
 `API_KEY`
 
 `ANOTHER_API_KEY`
 
 <!-- share a postman workspace??? -->
-
-#### Get all items
-
-```http
-  GET /api/items
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
-
-#### Get item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
 
 
 ## Environment Variables
