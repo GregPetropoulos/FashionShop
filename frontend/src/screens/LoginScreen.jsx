@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import { useLoginMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types'
 //Purpose is send request data to backend and set the cookie(login and auth the user) and get the user info and set the userInfo to local storage
 
 const LoginScreen = () => {
@@ -75,5 +76,8 @@ const LoginScreen = () => {
     </FormContainer>
   );
 };
-
+LoginScreen.propTypes={
+  login:PropTypes.func,
+  
+}
 export default LoginScreen;

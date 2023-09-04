@@ -6,4 +6,4 @@ export default {
   tags: ['autodocs'],
 };
 
-export const Default = (args) => <Footer {...args} />;
+export const Default = () => <Footer />;

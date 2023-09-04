@@ -13,9 +13,9 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Welcome to TechShop',
-  description: 'We sell the best tech supplies',
-  keywords: 'Electronics, buy electronics,cheap electronics',
+  title: 'Welcome to the Fashion Shop',
+  description: 'We sell the best women fashion products',
+  keywords: 'Dress,women apparel, high fashion, quality fashion',
 };
 Meta.propTypes = {
   title: PropTypes.string,

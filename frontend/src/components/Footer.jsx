@@ -18,6 +18,6 @@ const Footer = () => {
 };
 
 Footer.propTypes = {
-  currentYear: PropTypes.object,
+  currentYear: PropTypes.number,
 };
 export default Footer;

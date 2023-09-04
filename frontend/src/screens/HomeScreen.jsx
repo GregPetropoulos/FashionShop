@@ -28,7 +28,7 @@ const HomeScreen = () => {
         <Message variant='danger'>{error?.data?.message}</Message>
       ) : (
         <>
-          <Meta title='Home' />
+          <Meta title='Home' description='Fashion Shop home page with several dress,jeans and shirts products' />
           <h1>Latest Products</h1>
           <Row className='justify-content-center'>
             {data.products.map((product) => (

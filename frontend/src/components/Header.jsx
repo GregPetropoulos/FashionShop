@@ -93,14 +93,14 @@ const Header = () => {
   );
 };
 Header.propTypes = {
-  auth: PropTypes.shape({
-    userInfo: {
-      _id: PropTypes.string,
-      name: PropTypes.string,
-      email: PropTypes.string,
-      isAdmin: PropTypes.bool,
-    },
+  logoutHandler: PropTypes.func,
+  userInfo: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    isAdmin: PropTypes.bool,
   }),
+
   cart: PropTypes.shape({
     cartItems: PropTypes.arrayOf(
       PropTypes.shape({
