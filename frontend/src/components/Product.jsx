@@ -26,8 +26,7 @@ const Product = ({ product }) => {
 };
 Product.propTypes = {
   product: PropTypes.shape({
-    // _id: PropTypes.oneOfType([PropTypes.string,PropTypes.object]),
-    _id: PropTypes.any,
+    _id: PropTypes.string,
     _v: PropTypes.number,
     brand: PropTypes.string,
     category: PropTypes.string,

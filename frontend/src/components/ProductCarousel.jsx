@@ -27,8 +27,14 @@ const ProductCarousel = () => {
   );
 };
 ProductCarousel.propTypes = {
-  products: PropTypes.array,
+  data:PropTypes.shape({products: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.string,
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+    }))}),
   // data:PropTypes.array,
+  // products:PropTypes.array,
   isLoading: PropTypes.bool,
   error: PropTypes.object,
 };

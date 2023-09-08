@@ -23,7 +23,7 @@ const preview = {
         <Provider store={store}>
           {/* <PayPalScriptProvider deferLoading={true}> */}
             {/* <RouterProvider router={router} /> */}
-            <MemoryRouter>
+            <MemoryRouter initialEntries={['/']}>
               <Story />
             </MemoryRouter>
           {/* </PayPalScriptProvider> */}
