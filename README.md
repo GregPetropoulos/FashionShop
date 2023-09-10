@@ -21,11 +21,17 @@ Technologies:
     - Express
     - MongoDB
     - Mongoose
+    - Postman
     - Seeder
 
+- Testing
+
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ## Demo
 
-Insert gif or link to demo
+<!-- Insert gif or link to demo -->
 
 [Video]()
 
@@ -40,13 +46,13 @@ Insert gif or link to demo
 - Cross platform
 - Mobile Responsive
 - Full featured shopping cart
+- PayPal / credit card integration
+- Checkout process (shipping, payment method, etc)
 - Product reviews and ratings
 - Top products carousel
 - Product pagination
 - Product search feature
 - User profile with orders
-- Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
 - Database seeder (products & users)
 - Admin Features
     - Admin product management
@@ -94,7 +100,7 @@ If you have any feedback, please reach out to gregpetropoulos@yahoo.com
 
 ## Usage/Examples
 
-Login with the an admin user or test user that were seeded
+Go to the Login page and enter an admin user or test user
 ```bash
     email: 'admin@email.com',
     password:123456
@@ -105,13 +111,13 @@ Login with the an admin user or test user that were seeded
 ```
 
 
-```javascript
+<!-- ```javascript
 import Component from 'my-project'
 
 function App() {
   return <Component />
 }
-```
+``` -->
 
 
 <!-- ## Used By
