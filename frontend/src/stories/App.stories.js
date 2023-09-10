@@ -1,7 +1,8 @@
 import App from '../App'
 export default {
     title:'Root/App',
-    component:App
+    component:App,
+  tags: ['autodocs'],
 }
 
 const Template = args=>  <App {...args}/>
