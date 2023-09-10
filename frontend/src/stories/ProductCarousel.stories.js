@@ -6,31 +6,6 @@ export default {
   title: 'Components/ProductCarousel',
   component: ProductCarousel,
   tags: ['autodocs'],
-
-  //   args: {
-  //     data:{products: [
-  //       {
-  //         _id: '64d5bc1ea651331f3e727f08',
-  //         name: 'Plunging Cutout Maxi Dress',
-  //         image: '/images/womens-dress-2.webp',
-  //         price: 24.99,
-  //       },
-  //       {
-  //         _id: '64d5bc1ea651331f3e727f05',
-  //         name: 'Rhinestone Cross Choker Necklace',
-  //         image: '/images/necklace-1.jpeg',
-  //         price: 9.99,
-  //       },
-  //       {
-  //         _id: '64d5bc1ea651331f3e727f06',
-  //         name: 'Mid Rise Baby Boot Jeans with Washwell',
-  //         image: '/images/womens-bottoms-1.webp',
-  //         price: 89.99,
-  //       },
-  //     ]},
-  //     isLoading:false,
-  //     error:{}
-  //   },
   parameters: {
     msw: [
       rest.get('http://localhost:6006/api/products/top', (_req, res, ctx) => {
@@ -60,19 +35,23 @@ export default {
     ],
   },
 };
-const Template = (args) => <ProductCarousel {...args} />;
+const Template = () => <ProductCarousel />;
 
 export const Default = Template.bind({});
 
-export const FailedResponse = Template.bind({});
-FailedResponse.parameters = {
-  msw: [
-    rest.get('http://localhost:6006/api/products/top', (_req, res, ctx) => {
-      return res(ctx.delay(800), ctx.json({ message: 'Not found 404' }), ctx.status(404));
-    }),
-  ],
-};
-FailedResponse.args={
-    isLoading:false,
-    error:{data:{message:'Failed error message'}}
-}
+// export const FailedResponse = Template.bind({});
+// FailedResponse.parameters = {
+//   msw: [
+//     rest.get('http://localhost:6006/api/products/top', (_req, res, ctx) => {
+//       return res(
+//         // ctx.delay(3000),
+//         ctx.json({ message: 'Not found 404, /api/products/top' }),
+//         ctx.status(403)
+//       );
+//     }),
+//   ],
+// };
+// FailedResponse.args = {
+//   isLoading: false,
+//   error: { data: { message: 'Failed error message' } },
+// };
