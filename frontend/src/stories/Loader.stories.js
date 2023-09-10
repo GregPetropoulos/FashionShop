@@ -1,5 +1,4 @@
 import Loader from '../../src/components/Loader';
-import { Spinner } from 'react-bootstrap';
 export default {
   title: 'Components/Loader',
   component: Loader,
