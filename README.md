@@ -210,6 +210,8 @@ npx cypress open
 
 ## API Reference
 There are three core API categories and more detail can be found at the postman docs
+
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 - [Products API](https://documenter.getpostman.com/view/18334011/2s9Y5ctzyP)
 ```javascript
 /api/products
@@ -239,7 +241,7 @@ PAYPAL_CLIENT_ID=YOUR_PAYPAL_CLIENT_ID
 
 ## Deployment
 
-To deploy this project run
+To deploy this project on a platform such as render or heroku: 
 
 ```bash
   npm run deploy
@@ -253,11 +255,11 @@ See [contribute](./docs/contribute.md) for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-## Acknowledgements
+<!-- ## Acknowledgements -->
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ <!-- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project) -->
 
 # Hi, I'm Greg Petropoulos! 👋
 
@@ -270,7 +272,7 @@ React, React Native, Javascript, HTML, CSS, Node, Express
 
 
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://gregpetropoulos.dev/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-E50914?style=for-the-badge&logo=ko-fi&logoColor=white)](https://gregpetropoulos.dev/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/greg-petropoulos)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/GregoriosPetro1)
 
