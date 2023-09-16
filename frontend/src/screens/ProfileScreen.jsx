@@ -9,6 +9,7 @@ import { useProfileMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { FaTimes } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const ProfileScreen = () => {
   const [name, setName] = useState('');
@@ -20,13 +21,13 @@ const ProfileScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const [updateProfile, { isLoading: loadingUpdateProfile }] = useProfileMutation();
   const { data: orders, isLoading, error } = useGetMyOrdersQuery();
-
+// May need to implement refs here or useCallback
   useEffect(() => {
     if (userInfo) {
       setName(userInfo.name);
       setEmail(userInfo.email);
     }
-  }, [userInfo, userInfo.name, userInfo.email]);
+  }, [userInfo?.name, userInfo?.email]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -51,7 +52,7 @@ const ProfileScreen = () => {
           <Form.Group controlId='name' className='my-2'>
             <Form.Label>Name</Form.Label>
             <Form.Control
-              type='name'
+              type='text'
               placeholder='Enter Name'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -144,5 +145,12 @@ const ProfileScreen = () => {
     </Row>
   );
 };
-
+ProfileScreen.propTypes = {
+  userInfo: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    isAdmin: PropTypes.bool,
+  }),
+};
 export default ProfileScreen;

@@ -10,7 +10,7 @@ Message.defaultProps = {
 
 Message.propTypes = {
   variant: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.any,
 };
 
 export default Message;
