@@ -8,5 +8,4 @@ export default {
 const Template = (args) => <LoginScreen {...args} />;
 export const Default = Template.bind({});
 
-export const LoggedOut ={}
-
+export const LoggedOut = {};

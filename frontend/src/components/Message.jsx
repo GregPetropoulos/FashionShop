@@ -6,6 +6,7 @@ const Message = ({ variant, children }) => {
 };
 Message.defaultProps = {
   variant: 'info',
+  children: 'There was an error please report this to the admin.',
 };
 
 Message.propTypes = {

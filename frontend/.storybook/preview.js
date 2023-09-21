@@ -14,8 +14,19 @@ import store from '../src/store';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 
 // Initialize MSW
-initialize();
+// initialize();
+initialize({
+  onUnhandledRequest: ({ method, url }) => {
+    if (url.pathname.startsWith('/api/*')) {
+      console.error(`Unhandled ${method} request to ${url}.
 
+        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
+
+        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
+      `)
+    }
+  },
+})
 const preview = {
   decorators: [
     (Story) => (

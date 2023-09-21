@@ -9,6 +9,7 @@ import Meta from '../components/Meta';
 import { addToCart } from '../slices/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -187,5 +188,35 @@ const ProductScreen = () => {
     </>
   );
 };
+ProductScreen.propTypes = {
+  userInfo: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    isAdmin: PropTypes.bool,
+  }),
+  // product:PropTypes.object,
+  product: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number,
+    image: PropTypes.string,
+    rating: PropTypes.number,
+    countInStock: PropTypes.number,
+    numReviews: PropTypes.number,
+    reviews: PropTypes.array,
+    //   // reviews: PropTypes.arrayOf(PropTypes.shape({
+    //   //   _id:PropTypes.string,
+    //   //   name:PropTypes.string,
+    //   //   comment:PropTypes.string,
+    //   //   rating:PropTypes.number
 
+    //   // })),
+  }),
+  isLoading: PropTypes.bool,
+  error: PropTypes.object,
+  refetch: PropTypes.any,
+  productId: PropTypes.string,
+};
 export default ProductScreen;

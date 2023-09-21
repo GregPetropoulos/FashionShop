@@ -5,6 +5,7 @@ import { Row, Col, Form, ListGroup, Button, Image, Card } from 'react-bootstrap'
 import { FaTrash } from 'react-icons/fa';
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../slices/cartSlice';
+import PropTypes from 'prop-types';
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -97,5 +98,28 @@ const CartScreen = () => {
     </Row>
   );
 };
+// Stopped here
+CartScreen.propTypes = {
+  cartItems: PropTypes.array,
+  name: PropTypes.string,
+  _id: PropTypes.string,
+  user: PropTypes.string,
+  image: PropTypes.string,
+  brand: PropTypes.string,
+  category: PropTypes.string,
+  description: PropTypes.string,
+  rating: PropTypes.number,
+  numReviews: PropTypes.number,
+  price: PropTypes.number,
+  countInStock: PropTypes.number,
+  reviews: PropTypes.array,
+  __v: PropTypes.number,
+  createdAt: PropTypes.string,
+  updatedAt: PropTypes.string,
+  qty: PropTypes.number,
 
+  addToCartHandler: PropTypes.func,
+  removeFromCartHandler: PropTypes.func,
+  checkoutHandler: PropTypes.func,
+};
 export default CartScreen;

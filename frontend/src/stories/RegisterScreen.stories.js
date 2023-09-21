@@ -7,5 +7,3 @@ export default {
 };
 const Template = (args) => <RegisterScreen {...args} />;
 export const Default = Template.bind({});
-
-

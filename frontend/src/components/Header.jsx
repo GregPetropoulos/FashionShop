@@ -35,15 +35,15 @@ const Header = () => {
   return (
     <header>
       <Navbar bg='primary' variant='dark' expand='md' collapseOnSelect>
-        <Container>
+        <Container className=''>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <DressShopLogo className={'w-50 h-50'} />
+              <DressShopLogo className={'w-50 h-50 my-4'} />
             </Navbar.Brand>
           </LinkContainer>
 
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' className='mb-2' />
+          <Navbar.Collapse id='basic-navbar-nav' className='  my-4 '>
             <Nav className='ms-auto'>
               <SearchBox />
               <LinkContainer to='/cart'>

@@ -21,7 +21,7 @@ const ProfileScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const [updateProfile, { isLoading: loadingUpdateProfile }] = useProfileMutation();
   const { data: orders, isLoading, error } = useGetMyOrdersQuery();
-// May need to implement refs here or useCallback
+  // May need to implement refs here or useCallback
   useEffect(() => {
     if (userInfo) {
       setName(userInfo.name);
