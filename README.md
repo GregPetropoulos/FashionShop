@@ -16,7 +16,7 @@ Technologies:
     - React-Bootstrap
 - Backend
     
-    ![Frontend](https://skills.thijs.gg/icons?i=nodejs,express,mongo) 
+    ![Frontend](https://skills.thijs.gg/icons?i=nodejs,express,mongo,postman) 
     - Node
     - Express
     - MongoDB
