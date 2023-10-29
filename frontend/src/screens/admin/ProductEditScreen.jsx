@@ -37,6 +37,7 @@ const ProductEditScreen = () => {
       setDescription(product.description);
     }
   }, [product]);
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -49,7 +50,7 @@ const ProductEditScreen = () => {
         category,
         countInStock,
         description,
-      });
+      }).unwrap(); // NOTE: here we need to unwrap the Promise to catch any rejection in our catch block
       toast.success('Product Updated');
       refetch();
       navigate('/admin/productlist');
