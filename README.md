@@ -33,7 +33,7 @@ Technologies:
 
 <!-- Insert gif or link to demo -->
 
-[Video]()
+<!-- [Video]() -->
 
 [Deployed Link on render](https://fashionshopservice.onrender.com/)
 
@@ -88,7 +88,7 @@ Answer 2 -->
 ## Documentation
 [Resource Links](docs/doc-links.md)
 
-[Documentation](https://linktodocumentation)
+<!-- [Documentation](https://linktodocumentation) -->
 
 <!-- ## Optimizations
 
@@ -282,12 +282,12 @@ React, React Native, Javascript, HTML, CSS, Node, Express
 
 🧠 I'm currently learning Cypress testing strategy and Next.js
 
-👯‍♀️ I'm looking to collaborate on open source Veterans Health apps
+👯‍♀️ I'm looking to collaborate on open source Veterans Health apps, Oil and Gas Technology, Department Of Defense, and React Native Elements UI
 
 💬 Ask me about anything frontend
 
 📫 How to reach me gregpetropoulos@yahoo.com
 
 
-⚡️ Fun fact...I found a dinosaur fossil that remains in a museum.
+⚡️ Fun fact...I found a dinosaur fossil that remains in the [Las Vegas Natural History Museum](https://www.lvnhm.org/).
 
