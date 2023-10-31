@@ -26,7 +26,7 @@ function fileFilter(req, file, cb) {
     cb(new Error('Images only!'), false);
   }
 }
-const upload = multer({ storage, fileFilter });
+const upload = multer({ storage, fileFilter });//TODO ADD LIMITS HERE limits:{fieldSize:2000000}
 const uploadSingleImage = upload.single('image');
 
 // upload handled  by middleware

@@ -5,6 +5,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useGetProductDetailsQuery, useCreateReviewMutation } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import sampleImage from '../assets/images/sample.jpg';
 import Meta from '../components/Meta';
 import { addToCart } from '../slices/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,7 +62,7 @@ const ProductScreen = () => {
           <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={5}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image src={product.image?.secure_url || sampleImage} alt={product.name} fluid />
             </Col>
             <Col md={4}>
               <ListGroup variant='flush'>

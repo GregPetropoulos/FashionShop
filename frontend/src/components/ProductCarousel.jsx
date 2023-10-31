@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Carousel, Image } from 'react-bootstrap';
 import Message from './Message';
+import sampleImage from '../assets/images/sample.jpg';
 import { useGetTopProductsQuery } from '../slices/productsApiSlice';
 import PropTypes from 'prop-types';
 
@@ -14,7 +15,7 @@ const ProductCarousel = () => {
       {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid />
+            <Image src={product.image?.secure_url || sampleImage} alt={product.name} fluid />
             <Carousel.Caption className='carousel-caption'>
               <h2 className='text-white text-right'>
                 {product.name} (${product.price})

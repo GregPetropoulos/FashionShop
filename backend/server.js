@@ -19,8 +19,8 @@ connectDB();
 const app = express();
 
 // * REQUEST BODY PARSER MIDDLEWARE
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({limit: '60mb', extended: true}));
+app.use(express.urlencoded({limit: "60mb", parameterLimit:50000, extended: true }));
 
 //* COOKIE PARSER MIDDLEWARE--allows us to access request.cookies
 app.use(cookieParser());

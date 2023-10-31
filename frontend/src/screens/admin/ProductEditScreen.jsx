@@ -9,6 +9,7 @@ import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import { Form, Button } from 'react-bootstrap';
 import FormContainer from '../../components/FormContainer';
+import sampleImage from '../../assets/images/sample.jpg';
 import { toast } from 'react-toastify';
 
 const ProductEditScreen = () => {
@@ -24,22 +25,24 @@ const ProductEditScreen = () => {
   const { data: product, isLoading, refetch, error } = useGetProductDetailsQuery(productId);
   const [updateProduct, { isLoading: loadingUpdate }] = useUpdateProductMutation();
   const [uploadProductImage, { isLoading: loadingUpload }] = useUploadProductImageMutation();
+
   const navigate = useNavigate();
 
   useEffect(() => {
     if (product) {
       setName(product.name);
       setPrice(product.price);
-      setImage(product.image);
+      setImage(product.image?.secure_url || sampleImage); //TODO TUTORIAL
       setBrand(product.brand);
       setCategory(product.category);
       setCountInStock(product.countInStock);
       setDescription(product.description);
     }
   }, [product]);
-  
+
   const submitHandler = async (e) => {
     e.preventDefault();
+   
     try {
       await updateProduct({
         productId,
@@ -59,16 +62,23 @@ const ProductEditScreen = () => {
     }
   };
 
+  //TODO TUTORIAL
   const uploadFileHandler = async (e) => {
-    // https://developer.mozilla.org/en-US/docs/Web/API/FormData
-    const formData = new FormData();
-    formData.append('image', e.target.files[0]);
-    try {
-      const res = await uploadProductImage(formData).unwrap();
-      toast.success(res.message);
-      setImage(res.image);
-    } catch (err) {
-      toast.error(err?.data?.message || err.error);
+    const uploadedFile = e.target.files[0];
+    transformFileToBase64(uploadedFile);
+  };
+  const transformFileToBase64 = (file) => {
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(file);
+      //Once done with transformation set state
+      reader.onloadend = () => {
+        setImage(reader.result);
+        toast.success(`${file.name} uploaded`);
+      };
+    } else {
+      setImage('');
+      toast.error('File could not upload');
     }
   };
   return (

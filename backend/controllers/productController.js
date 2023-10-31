@@ -1,5 +1,7 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../models/productModel.js';
+// import { cloudinaryUploadImage } from '../utils/cloudinary.js';
+import cloudinary from '../utils/cloudinary.js';
 
 // @desc    Fetch all products/paginate
 // @route   GET /api/products
@@ -55,7 +57,7 @@ const createProducts = asyncHandler(async (req, res) => {
     name: 'Sample Name',
     price: 0,
     user: req.user._id,
-    image: '/images/sample.jpg',
+    image: {},
     brand: 'Sample Brand',
     category: 'Sample Category',
     countInStock: 0,
@@ -72,20 +74,52 @@ const createProducts = asyncHandler(async (req, res) => {
 const updateProduct = asyncHandler(async (req, res) => {
   const { name, price, description, image, brand, category, countInStock } = req.body;
   const product = await Product.findById(req.params.id);
-
+  
   if (product) {
-    product.name = name;
-    product.price = price;
-    product.description = description;
-    product.image = image;
-    product.brand = brand;
-    product.category = category;
-    product.countInStock = countInStock;
-    const updatedProduct = await product.save();
-    res.json(updatedProduct);
+    try {
+      if (image.length > 0) {
+        const cloudinaryResult = await cloudinary.uploader.upload(image, {
+          folder: 'fashionShopProductImages',
+          resource_type: 'auto',
+          resource_type: 'image',
+          allowed_formats: ['jpg', 'png', 'webp', 'svg'],
+          overwrite: true,
+        });
+
+        if (cloudinaryResult) {
+          product.name = name;
+          product.price = price;
+          product.description = description;
+          product.image = cloudinaryResult;
+          product.brand = brand;
+          product.category = category;
+          product.countInStock = countInStock;
+          const updatedProduct = await product.save();
+          res.status(200).json(updatedProduct);
+        } else {
+          res.status(404);
+          throw new Error('Cloud Resource not found');
+        }
+      }
+      if (image.length === 0 || image === undefined || image === null) {
+        product.name = name;
+        product.price = price;
+        product.description = description;
+        product.image = {};
+        product.brand = brand;
+        product.category = category;
+        product.countInStock = countInStock;
+        const updatedProduct = await product.save();
+        res.status(200).json(updatedProduct);
+      } else {
+        res.status(404);
+        throw new Error('Image Condition Failed');
+      }
+    } catch (err) {
+      console.error(`Status: ${err.status}, Error:${err}`);
+    }
   } else {
-    res.status(404);
-    throw new Error('Resource not found');
+    throw new Error('No Product');
   }
 });
 
@@ -95,6 +129,9 @@ const updateProduct = asyncHandler(async (req, res) => {
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
+    if (product.image.public_id) {
+      await cloudinary.uploader.destroy(product.image.public_id);
+    }
     // Mongoose method deleteOne
     await Product.deleteOne({ _id: product._id });
     res.status(200).json({ message: 'Product Deleted' });

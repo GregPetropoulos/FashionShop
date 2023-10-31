@@ -2,13 +2,15 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; //FOR NEXTJS use href
 import Rating from './Rating';
+import sampleImage from '../assets/images/sample.jpg';
 import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
   return (
     <Card className='my-3 p-3 rounded'>
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant='top' />
+        <Card.Img src={product.image?.secure_url || sampleImage} variant='top' 
+         />
       </Link>
       <Card.Body>
         <Link to={`/product/${product._id}`} className='text-decoration-none text-secondary'>
@@ -33,7 +35,7 @@ Product.propTypes = {
     countInStock: PropTypes.number,
     createdAt: PropTypes.string,
     description: PropTypes.string,
-    image: PropTypes.string,
+    image: PropTypes.object,
     name: PropTypes.string,
     numReviews: PropTypes.number,
     price: PropTypes.number,
