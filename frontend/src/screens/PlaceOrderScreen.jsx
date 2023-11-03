@@ -11,37 +11,38 @@ import { clearCartItems } from '../slices/cartSlice';
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
-  const {
-    totalPrice,
-    taxPrice,
-    shippingPrice,
-    itemsPrice,
-    cartItems,
-    paymentMethod,
-    shippingAddress,
-  } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
   const [createOrder, { isLoading, error }] = useCreateOrderMutation();
   useEffect(() => {
-    if (!shippingAddress.address) {
+    if (!cart.shippingAddress.address) {
       navigate('/shipping');
-    } else if (!paymentMethod) {
+    } else if (!cart.paymentMethod) {
       navigate('/payment');
     }
-  }, [paymentMethod, shippingAddress.address, navigate]);
+  }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
+  // const {
+  //   totalPrice,
+  //   taxPrice,
+  //   shippingPrice,
+  //   itemsPrice,
+  //   cartItems,
+  //   paymentMethod,
+  //   shippingAddress,
+  // } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({
-        orderItems: cartItems,
-        shippingAddress,
-        paymentMethod,
-        itemsPrice,
-        shippingPrice,
-        taxPrice,
-        totalPrice,
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
       }).unwrap();
-      dispatch(clearCartItems);
+      dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (err) {
       toast.error(err);
@@ -57,26 +58,26 @@ const PlaceOrderScreen = () => {
               <h2>Shipping</h2>
               <p>
                 <strong>Address:</strong>
-                <span className='px-2'>{shippingAddress.address},</span>
-                <span>{shippingAddress.city},</span>
-                <span className='px-2'>{shippingAddress.postalCode},</span>
-                <span>{shippingAddress.country}</span>
+                <span className='px-2'>{cart.shippingAddress.address},</span>
+                <span>{cart.shippingAddress.city},</span>
+                <span className='px-2'>{cart.shippingAddress.postalCode},</span>
+                <span>{cart.shippingAddress.country}</span>
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>Payment Method</h2>
               <p>
                 <strong>Method:</strong>
-                {paymentMethod}
+                {cart.paymentMethod}
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>Order Items</h2>
-              {cartItems.length === 0 ? (
+              {cart.cartItems.length === 0 ? (
                 <Message>Your cart is empty</Message>
               ) : (
                 <ListGroup variant='flush'>
-                  {cartItems.map((item, index) => (
+                  {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
@@ -86,7 +87,7 @@ const PlaceOrderScreen = () => {
                           <Link to={`/products/${item.product}`}></Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x {item.price} = {(item.qty * item.price).toFixed(2)}
+                          {item.qty} x {item.price} =$ {(item.qty * (item.price * 100)) / 100}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -105,25 +106,25 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items:</Col>
-                  <Col>${itemsPrice}</Col>
+                  <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping:</Col>
-                  <Col>${shippingPrice}</Col>
+                  <Col>${cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax:</Col>
-                  <Col>${taxPrice}</Col>
+                  <Col>${cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total:</Col>
-                  <Col>${totalPrice}</Col>
+                  <Col>${cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -133,7 +134,7 @@ const PlaceOrderScreen = () => {
                 <Button
                   type='button'
                   className='btn-block'
-                  disabled={cartItems.length === 0}
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                 >
                   Place Order

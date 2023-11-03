@@ -1,26 +1,29 @@
-//   ADD DECIMALS HELPER
+//   ADD DECIMALS HELPER AND ROUND TO WHOLE NUMBERS
 export const addDecimals = (num) => {
   return (Math.round(num * 100) / 100).toFixed(2);
 };
 
 export const updateCart = (state) => {
   //* CALCULATE ITEMS PRICE, CREATED A NEW ITEMSPRICE TO THE  CART STATE
-  state.itemsPrice = addDecimals(
-    state.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+
+  const itemsPrice = state.cartItems.reduce(
+    (acc, item) => acc + (item.price * 100 * item.qty) / 100,
+    0
   );
 
+  state.itemsPrice = addDecimals(itemsPrice);
+
   //* CALCULATE SHIPPING PRICE (if order is over $100,then shipping free, else $10 for shipping)
-  state.shippingPrice = addDecimals(state.itemsPrice > 100 ? 0 : 10);
+  const shippingPrice = itemsPrice > 100 ? 0 : 10;
+  state.shippingPrice = addDecimals(shippingPrice);
 
   //* CALCULATE TAX PRICE (15% tax)
-  state.taxPrice = addDecimals(Number((0.15 * state.itemsPrice).toFixed(2)));
+  const taxPrice = 0.15 * itemsPrice;
+  state.taxPrice = addDecimals(taxPrice);
 
   //* CALCULATE TOTAL PRICE
-  state.totalPrice = (
-    Number(state.itemsPrice) +
-    Number(state.shippingPrice) +
-    Number(state.taxPrice)
-  ).toFixed(2);
+  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+  state.totalPrice = addDecimals(totalPrice);
 
   // * SET TO LOCAL STORAGE
   localStorage.setItem('cart', JSON.stringify(state));
