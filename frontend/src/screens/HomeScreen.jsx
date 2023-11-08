@@ -29,7 +29,7 @@ const HomeScreen = () => {
       ) : (
         <>
           <Meta
-            title='Home'
+            title='Fashion Shop'
             description='Fashion Shop home page with several dress,jeans and shirts products'
           />
           <h1>Latest Products</h1>
