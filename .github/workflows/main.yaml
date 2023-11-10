@@ -1,0 +1,25 @@
+name: Cypress Tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run dev
+          browser: chrome
+      - run: npm run prettier
+      # - name: 'Create env file'
+      #     run: |
+      #       touch .env
+      #       echo CONTENTFUL_SPACE_ID="${{ secrets.CONTENTFUL_SPACE_ID }}" >> .env.production
+      #       echo CONTENTFUL_DELIVERY_ACCESS_TOKEN=${{ secrets.CONTENTFUL_DELIVERY_ACCESS_TOKEN }} >> .env.production
+      #       cat .env
