@@ -16,11 +16,11 @@ jobs:
       #   uses: cypress-io/github-action@v6
       #   env:
       #     MONGODB_URI: ${{ secrets.MONGODB_URI }} 
-      # - name: Install Backend Modules
-      #   uses: cypress-io/github-action@v6
-      #   with: 
-      #     install-command:  npm run install:backend
-      #     runTests: false
+      - name: Install Backend Modules
+        uses: cypress-io/github-action@v6
+        with: 
+          install-command:  npm run install:backend
+          runTests: false
       # - name: Install Frontend modules
       #   uses: cypress-io/github-action@v6
       #   with:
