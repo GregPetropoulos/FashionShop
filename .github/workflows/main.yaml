@@ -27,6 +27,7 @@ jobs:
         with:
           # start: npm run start:frontend, npm run start:server
           start: npm start, npm run client
+          wait-on: 'http://localhost:5000, http://localhost:3000'
           command: npm run test
           # =====================
       # - name: Use Node.js ${{ matrix.node-version }}
