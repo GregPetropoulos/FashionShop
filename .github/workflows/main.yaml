@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # - name: Cypress run with env
-      #   uses: cypress-io/github-action@v6
-      #   env:
-      #     MONGODB_URI: ${{ secrets.MONGODB_URI }} 
+      - name: Cypress run with env
+        uses: cypress-io/github-action@v6
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }} 
       - name: Install Backend Modules
         uses: cypress-io/github-action@v6
         with: 
