@@ -39,8 +39,8 @@ on:
       #      install-command: npm run install:frontend
       #      runTests: false
       # - name: Run E2E tests 🧪
-         uses: cypress-io/github-action@v6
-         with:
-           start: npm start, npm run client
-           # wait-on: 'http://localhost:5000, http://localhost:3000'
-           command: npm run test
+        #  uses: cypress-io/github-action@v6
+        #  with:
+        #    start: npm start, npm run client
+        #    # wait-on: 'http://localhost:5000, http://localhost:3000'
+        #    command: npm run test
