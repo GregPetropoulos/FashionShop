@@ -32,10 +32,10 @@ const Header = () => {
       console.log(err);
     }
   };
-  
+
   return (
     <header className='sticky-top'>
-      <Navbar  bg='primary' variant='dark' expand='md' collapseOnSelect>
+      <Navbar bg='primary' variant='dark' expand='md' collapseOnSelect>
         <Container className=''>
           <LinkContainer to='/'>
             <Navbar.Brand>
