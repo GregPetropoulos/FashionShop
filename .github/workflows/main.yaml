@@ -17,8 +17,6 @@ jobs:
         with: 
           install-command:  npm run install:backend
           runTests: false
-          env:
-          MONGO_URI: ${{ secrets.MONGO_URI }} 
       # - name: Cypress run with env
         uses: cypress-io/github-action@v6
         env:
