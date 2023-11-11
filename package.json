@@ -33,7 +33,9 @@
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "cypress:open":"cd frontend && npm run cypress:open",
     "test":"cd frontend && npm run cypress:run",
-    "cypress:run":"cd frontend && npm run cypress:run"
+    "cypress:run":"cd frontend && npm run cypress:run",
+    "install:backend": "npm install",
+    "install:frontend": "cd frontend && npm install"
 
   },
   "repository": {
