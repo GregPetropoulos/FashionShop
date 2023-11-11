@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-        mongodb-version: ['4.2', '4.4', '5.0', '6.0']
+        # mongodb-version: ['4.2', '4.4', '5.0', '6.0']
     steps:
       - name: Git Checkout Repo
         uses: actions/checkout@v4
@@ -42,22 +42,5 @@ jobs:
          PAGINATION_LIMIT: 3
         uses: cypress-io/github-action@v6
         with:
-          # start: npm run start:frontend, npm run start:server
           start: npm start, npm run client
           command: npm run test
-          # =====================
-      # - name: Use Node.js ${{ matrix.node-version }}
-        # uses: actions/setup-node@v3
-        # with:
-        #   cache: 'npm'
-        #   build: npm run build
-        #   start: npm start,npm run client
-        #   wait-on: 'http://localhost:5000, http://localhost:3000'
-        #   browser: chrome
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      # - name: Cypress run
-        # with:
-        #   build: npm run build
-        #   start: npm run dev
-        #   browser: chrome
