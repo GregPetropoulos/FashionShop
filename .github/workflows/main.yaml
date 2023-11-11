@@ -39,6 +39,7 @@ jobs:
       - name: Run E2E tests 🧪
         env: 
          MONGO_URI: ${{secrets.MONGO_URI}}
+         PAGINATION_LIMIT: 3
         uses: cypress-io/github-action@v6
         with:
           # start: npm run start:frontend, npm run start:server
