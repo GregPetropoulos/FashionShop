@@ -12,7 +12,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-        # mongodb-version: ['4.2', '4.4', '5.0', '6.0']
     steps:
       - name: Git Checkout Repo
         uses: actions/checkout@v4
@@ -20,12 +19,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      # - name: Start MongoDB
-      #   uses: supercharge/mongodb-github-action@1.10.0
-      #   with:
-      #     mongodb-version: ${{ matrix.mongodb-version }}
-      #     mongodb-replica-set: test-rs
-      #     mongodb-port: 42069
       - name: Install Backend Modules
         uses: cypress-io/github-action@v6
         with: 
@@ -42,5 +35,5 @@ jobs:
          PAGINATION_LIMIT: 3
         uses: cypress-io/github-action@v6
         with:
-          start: npm start, npm run client
+          start: npm start, npm run client, npm run prettier
           command: npm run test
