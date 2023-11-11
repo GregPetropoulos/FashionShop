@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x]
+        # mongodb-version: ['4.2', '4.4', '5.0', '6.0']
     steps:
       - name: Git Checkout Repo
         uses: actions/checkout@v4
@@ -35,5 +36,5 @@ jobs:
          PAGINATION_LIMIT: 3
         uses: cypress-io/github-action@v6
         with:
-          start: npm start, npm run client, npm run prettier
+          start: npm start, npm run client
           command: npm run test
