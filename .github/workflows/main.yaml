@@ -30,6 +30,7 @@ jobs:
           install-command: npm run install:frontend
           runTests: false
       - name: Prettier Check
+        uses: cypress-io/github-action@v6
         run: 'npm run prettier'
       - name: Run E2E tests 🧪
         env: 
