@@ -22,6 +22,11 @@ jobs:
         with:
           install-command: npm run install:frontend
           runTests: false
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo MONGO_URI="${{ secrets.MONGO_URI }}" >> .env.production
+          cat .env
       - name: Run E2E tests 🧪
         uses: cypress-io/github-action@v6
         with:
