@@ -20,12 +20,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.10.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
-          mongodb-replica-set: test-rs
-          mongodb-port: 42069
+      # - name: Start MongoDB
+      #   uses: supercharge/mongodb-github-action@1.10.0
+      #   with:
+      #     mongodb-version: ${{ matrix.mongodb-version }}
+      #     mongodb-replica-set: test-rs
+      #     mongodb-port: 42069
       - name: Install Backend Modules
         uses: cypress-io/github-action@v6
         with: 
@@ -37,6 +37,8 @@ jobs:
           install-command: npm run install:frontend
           runTests: false
       - name: Run E2E tests 🧪
+        env: 
+         MONGO_URI: ${{secrets.MONGO_URI}}
         uses: cypress-io/github-action@v6
         with:
           # start: npm run start:frontend, npm run start:server
