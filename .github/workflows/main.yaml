@@ -12,40 +12,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cypress run with env
-        uses: cypress-io/github-action@v6
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }} 
-      - name: Install Backend Modules
-        uses: cypress-io/github-action@v6
-        with: 
-          install-command:  npm run install:backend
-          runTests: false
-      - name: Install Frontend modules
-        uses: cypress-io/github-action@v6
-        with:
-          install-command: npm run install:frontend
-          runTests: false
-      - name: Run E2E tests 🧪
-        uses: cypress-io/github-action@v6
-        with:
-          # start: npm run start:frontend, npm run start:server
-          start: npm start, npm run client
-          wait-on: 'http://localhost:5000, http://localhost:3000'
-          command: npm run test
-          # =====================
-      # - name: Use Node.js ${{ matrix.node-version }}
-        # uses: actions/setup-node@v3
-        # with:
-        #   cache: 'npm'
-        #   build: npm run build
-        #   start: npm start,npm run client
-        #   wait-on: 'http://localhost:5000, http://localhost:3000'
-        #   browser: chrome
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      # - name: Cypress run
-        # with:
-        #   build: npm run build
-        #   start: npm run dev
-        #   browser: chrome
+      # - name: Cypress run with env
+      #   uses: cypress-io/github-action@v6
+      #   env:
+      #     MONGODB_URI: ${{ secrets.MONGODB_URI }} 
+      # - name: Install Backend Modules
+      #   uses: cypress-io/github-action@v6
+      #   with: 
+      #     install-command:  npm run install:backend
+      #     runTests: false
+      # - name: Install Frontend modules
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     install-command: npm run install:frontend
+      #     runTests: false
+      # - name: Run E2E tests 🧪
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     start: npm start, npm run client
+      #     # wait-on: 'http://localhost:5000, http://localhost:3000'
+      #     command: npm run test
