@@ -12,7 +12,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-        # mongodb-version: ['4.2', '4.4', '5.0', '6.0']
     steps:
       - name: Git Checkout Repo
         uses: actions/checkout@v4
@@ -34,8 +33,13 @@ jobs:
         run: npm run prettier
       - name: Run E2E tests 🧪
         env: 
+         API_SECRET: ${{secrets.API_SECRET}}
+         CLOUDINARY_API_KEY: ${{secrets.CLOUDINARY_API_KEY}}
+         CLOUD_NAME: ${{secrets.CLOUD_NAME}}
+         JWT_SECRET: ${{secrets.JWT_SECRET}}
          MONGO_URI: ${{secrets.MONGO_URI}}
-         PAGINATION_LIMIT: 3
+         PAGINATION_LIMIT: ${{secrets.PAGINATION_LIMIT}}
+         PAYPAL_CLIENT_ID: ${{secrets.PAYPAL_CLIENT_ID}}
         uses: cypress-io/github-action@v6
         with:
           start: npm start, npm run client
