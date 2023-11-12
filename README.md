@@ -1,7 +1,5 @@
-
 # Fashion Shop
-
-## Logo
+### Logo
 ![Logo](./frontend/src/assets/dress-logo.png)
 
 A custom e-commerce fashion shop focused on women's apparel. This website/application is built for a small business wanting to have more granular control, adaptability, and custom features of their website.
