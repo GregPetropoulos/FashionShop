@@ -59,7 +59,7 @@ const ProductScreen = () => {
         <Message variant='danger'>{error?.data?.message}</Message>
       ) : (
         <>
-          <Meta title={product.name} description={product.description} />
+          <Meta title={`Fashion Shop ${product.name}`} description={product.description} />
           <Row>
             <Col md={5}>
               <Image src={product.image?.secure_url || sampleImage} alt={product.name} fluid />

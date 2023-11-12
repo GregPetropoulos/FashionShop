@@ -22,6 +22,7 @@ const SearchBox = () => {
       <Form.Control
         type='text'
         name='q'
+        autoFocus
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
         placeholder='Search Products...'

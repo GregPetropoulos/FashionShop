@@ -30,7 +30,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -62,6 +64,7 @@
     "@storybook/react-webpack5": "^7.2.3",
     "@storybook/testing-library": "^0.2.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "cypress": "^13.4.0",
     "eslint-plugin-storybook": "^0.6.13",
     "msw": "^1.2.3",
     "msw-storybook-addon": "^1.8.0",

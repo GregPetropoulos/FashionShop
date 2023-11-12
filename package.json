@@ -30,13 +30,19 @@
     "format": "concurrently \"prettier --write ./frontend/src\" \"prettier --write ./backend\"",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "cypress:open":"cd frontend && npm run cypress:open",
+    "test":"cd frontend && npm run cypress:run",
+    "cypress:run":"cd frontend && npm run cypress:run",
+    "install:backend": "npm install",
+    "install:frontend": "cd frontend && npm install"
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GregPetropoulos/FashionShop.git"
   },
-  "author": "Greg Petropoulos",
+  "author": "Greg Petropoulos <gregpetropoulos0341@gmail.com> (https://gregpetropoulos.dev)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GregPetropoulos/FashionShop/issues"

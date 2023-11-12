@@ -42,7 +42,7 @@ const ProductEditScreen = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-   
+
     try {
       await updateProduct({
         productId,
