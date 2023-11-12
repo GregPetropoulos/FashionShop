@@ -26,9 +26,21 @@ Technologies:
 
 - Testing
 
-![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
-![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+  ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+    - E2E Layer
+    - Unit Layer
+
+  ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+    - Component Layer
+
+  ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+    - API Layer
+
+- DEVOPS
+  - Github Actions
+  - Automated Testing checks on PR and main push
+  - CI/CD
+
 ## Demo
 
 <!-- Insert gif or link to demo -->
@@ -290,4 +302,5 @@ React, React Native, Javascript, HTML, CSS, Node, Express
 
 
 ⚡️ Fun fact...I found a dinosaur fossil that remains in the [Las Vegas Natural History Museum](https://www.lvnhm.org/).
+
 
