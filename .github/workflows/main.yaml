@@ -30,6 +30,8 @@ jobs:
         with:
           install-command: npm run install:frontend
           runTests: false
+      - name: 'Prettier Format'
+        run: npm run prettier
       - name: Run E2E tests 🧪
         env: 
          MONGO_URI: ${{secrets.MONGO_URI}}
