@@ -57,7 +57,7 @@ const createProducts = asyncHandler(async (req, res) => {
     name: 'Sample Name',
     price: 0,
     user: req.user._id,
-    image: {},
+    image: { secure_url: '' },
     brand: 'Sample Brand',
     category: 'Sample Category',
     countInStock: 0,
@@ -87,10 +87,11 @@ const updateProduct = asyncHandler(async (req, res) => {
         });
 
         if (cloudinaryResult) {
+          const { secure_url } = cloudinaryResult;
           product.name = name;
           product.price = price;
           product.description = description;
-          product.image = cloudinaryResult;
+          product.image = { secure_url };
           product.brand = brand;
           product.category = category;
           product.countInStock = countInStock;
@@ -100,20 +101,16 @@ const updateProduct = asyncHandler(async (req, res) => {
           res.status(404);
           throw new Error('Cloud Resource not found');
         }
-      }
-      if (image.length === 0 || image === undefined || image === null) {
+      } else {
         product.name = name;
         product.price = price;
         product.description = description;
-        product.image = {};
+        product.image = { secure_url: '' };
         product.brand = brand;
         product.category = category;
         product.countInStock = countInStock;
         const updatedProduct = await product.save();
         res.status(200).json(updatedProduct);
-      } else {
-        res.status(404);
-        throw new Error('Image Condition Failed');
       }
     } catch (err) {
       console.error(`Status: ${err.status}, Error:${err}`);
