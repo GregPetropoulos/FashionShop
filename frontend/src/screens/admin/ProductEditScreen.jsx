@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import {
-  useUpdateProductMutation,
-  useGetProductDetailsQuery,
-  useUploadProductImageMutation,
-} from '../../slices/productsApiSlice';
+import { useUpdateProductMutation, useGetProductDetailsQuery } from '../../slices/productsApiSlice';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import { Form, Button } from 'react-bootstrap';
 import FormContainer from '../../components/FormContainer';
-import sampleImage from '../../assets/images/sample.jpg';
 import { toast } from 'react-toastify';
+
+// For images we are sending a string to the backend that will be changed to an object
 
 const ProductEditScreen = () => {
   const { id: productId } = useParams();
@@ -24,7 +21,6 @@ const ProductEditScreen = () => {
 
   const { data: product, isLoading, refetch, error } = useGetProductDetailsQuery(productId);
   const [updateProduct, { isLoading: loadingUpdate }] = useUpdateProductMutation();
-  const [uploadProductImage, { isLoading: loadingUpload }] = useUploadProductImageMutation();
 
   const navigate = useNavigate();
 
@@ -32,7 +28,7 @@ const ProductEditScreen = () => {
     if (product) {
       setName(product.name);
       setPrice(product.price);
-      setImage(product.image?.secure_url || sampleImage); //TODO TUTORIAL
+      setImage(product.image?.secure_url || '');
       setBrand(product.brand);
       setCategory(product.category);
       setCountInStock(product.countInStock);
@@ -62,7 +58,7 @@ const ProductEditScreen = () => {
     }
   };
 
-  //TODO TUTORIAL
+  // Uploading images as base64 and sending to the backend to be consumed by cloudinary and saved to the db as an object with secure_url key
   const uploadFileHandler = async (e) => {
     const uploadedFile = e.target.files[0];
     transformFileToBase64(uploadedFile);
@@ -127,7 +123,6 @@ const ProductEditScreen = () => {
                 onChange={uploadFileHandler}
               ></Form.Control>
             </Form.Group>
-            {loadingUpload && <Loader />}
             <Form.Group controlId='brand' className='my-2'>
               <Form.Label>Brand</Form.Label>
               <Form.Control

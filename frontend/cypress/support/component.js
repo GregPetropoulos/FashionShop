@@ -20,7 +20,7 @@ import './commands'
 // require('./commands')
 
 
-import { mount } from 'cypress/react'
+import { mount } from 'cypress/react18'
 import { Provider } from 'react-redux'
 import { getStore } from '../../src/store'
 import Cypress from 'cypress'
@@ -34,9 +34,6 @@ Cypress.Commands.add('mount', (component, options = {}) => {
   return mount(wrapped, mountOptions)
 })
 
-
-
-// import { mount } from 'cypress/react18'
 
 // Cypress.Commands.add('mount', mount)
 
