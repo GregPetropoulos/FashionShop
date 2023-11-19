@@ -32,9 +32,7 @@ const SearchBox = () => {
         type='submit'
         // variant={''}
         className=' bg-info px-2 mx-2'
-      >
-        {' '}
-        Search
+      >Search
       </Button>
     </Form>
   );

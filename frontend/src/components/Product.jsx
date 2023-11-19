@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
   return (
-    <Card className='my-3 p-3 rounded'>
+    <Card className='my-3 p-3 rounded' data-testid='Product.ProductCard'>
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image?.secure_url || sampleImage} variant='top' />
       </Link>
