@@ -7,7 +7,7 @@ on:
     branches: ['main']
 
 jobs:
-  cypress-run:
+  cypress-run-e2e:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -44,3 +44,29 @@ jobs:
         with:
           start: npm start, npm run client
           command: npm run test
+  frontend-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Install Frontend modules
+          uses: cypress-io/github-action@v6
+          with:
+            install-command: npm run install:frontend
+            runTests: false
+        - name: Run Frontend UI tests 🧪
+          # uses: cypress-io/github-action@v6
+          # with:
+          uses: ../frontend/
+          with:
+            # start: npm run start:frontend
+            # command: npm run test:frontend
+            working-directory: src
+            component: true
+            # 
+          # steps:
+    # - uses: actions/checkout@v3
+    # - name: Install frontend modules
+      # run: npm run install:frontend
+    # - name: Run frontend unit tests 🧪
+      # run: npm run test:frontend:unit
